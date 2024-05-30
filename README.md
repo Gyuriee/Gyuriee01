@@ -48,3 +48,6 @@
 > ">" 를 사용하면 인용이 된다.
 >> 인용 안에 인용문은
 >>> 계속해서 추가 가능하다.
+
+# 철수사진
+![철수](https://github.com/Gyuriee/Gyuriee01/blob/main/%EC%B2%A0%EC%88%98.jpg)
