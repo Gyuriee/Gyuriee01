@@ -1,0 +1,2 @@
+C:\Users\simpl>cd C:\Users\simpl\Downloads\word_cloud-main
+C:\Users\simpl\Downloads\word_cloud-main>wordcloud_cli --text SICAGO.txt --imagefile my_wordcloud.png --fontfile SeoulNamsanvert.ttf
