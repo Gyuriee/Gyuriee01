@@ -1,0 +1,80 @@
+https://dacon.io/competitions/official/235713/codeshare/2607?page=3&dtype=recent
+신용카드 연체율 예측 AI 경진 대회
+
+1위하신 팀 소회의실 분들의 코드를 baseline 으로 설정하여 baseline 예측률보다 높게 예측하고자 함
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib import font_manager, rc
+import warnings
+warnings.filterwarnings(action='ignore')
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib import font_manager, rc
+import warnings
+warnings.filterwarnings(action='ignore')
+
+train = pd.read_csv('train.csv')
+train.head()
+
+train['age'] = train['DAYS_BIRTH'] / -365
+train['age']
+    #
+
+male_data_0 = train[(train['gender'] == 'M') & (train['credit'] == 0)]
+female_data_0 = train[(train['gender'] == 'F') & (train['credit'] == 0)]
+
+male_data_1 = train[(train['gender'] == 'M') & (train['credit'] == 1)]
+female_data_1 = train[(train['gender'] == 'F') & (train['credit'] == 1)]
+
+male_data_2 = train[(train['gender'] == 'M') & (train['credit'] == 2)]
+female_data_2 = train[(train['gender'] == 'F') & (train['credit'] == 2)]
+
+fig, axes = plt.subplots(2, 3, figsize=(18, 10), sharey=True)
+
+# 남자 신용 0등급
+
+sns.scatterplot(data = male_data_0, x = 'age', y = 'income_total', color = 'blue', alpha = 0.7, ax = axes[0, 0])
+axes[0, 0].set_title('남자 신용 0등급')
+axes[0, 0].set_xlabel('나이')
+axes[0, 0].set_ylabel('연간 수익')
+
+# 여자 신용 0등급
+
+sns.scatterplot(data = female_data_0, x = 'age', y = 'income_total', color = 'pink', alpha = 0.7, ax = axes[1, 0])
+axes[1, 0].set_title('여자 신용 0등급')
+axes[1, 0].set_xlabel('나이')
+axes[1, 0].set_ylabel('연간 수익')
+
+# 여자 신용 0등급
+
+sns.scatterplot(data = female_data_0, x = 'age', y = 'income_total', color = 'pink', alpha = 0.7, ax = axes[1, 0])
+axes[1, 0].set_title('여자 신용 0등급')
+axes[1, 0].set_xlabel('나이')
+axes[1, 0].set_ylabel('연간 수익')
+
+# 여자 신용 1등급
+
+sns.scatterplot(data = female_data_1, x = 'age', y = 'income_total', color = 'pink', alpha = 0.7, ax = axes[1, 1])
+axes[1, 1].set_title('여자 신용 1등급')
+axes[1, 1].set_xlabel('나이')
+axes[1, 1].set_ylabel('연간 수익')
+
+# 남자 신용 2등급
+
+sns.scatterplot(data=male_data_2, x='age', y='income_total', color = 'blue', alpha=0.7, ax=axes[0, 2])
+axes[0, 2].set_title('남자 신용 2등급')
+axes[0, 2].set_xlabel('나이')
+axes[0, 2].set_ylabel('연간 수익')
+
+# 여자 신용 2등급
+
+sns.scatterplot(data=female_data_2, x='age', y='income_total', color = 'pink', alpha=0.7, ax=axes[1, 2])
+axes[1, 2].set_title('여자 신용 2등급')
+axes[1, 2].set_xlabel('나이')
+axes[1, 2].set_ylabel('연간 수익')
+
+fig
